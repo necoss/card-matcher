@@ -1,0 +1,1 @@
+export type CardSize = { label: string; isDefault?: true }
