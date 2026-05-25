@@ -300,7 +300,7 @@ export const HeroSection = () => (
           >
             {[
               { value: '99%', label: 'Точность расчёта' },
-              { value: '10+', label: 'Форматов видео' },
+              { value: '5+', label: 'Форматов видео' },
               { value: '0 BYN', label: 'Полностью бесплатно' },
             ].map((stat, i) => (
               <div key={stat.label} className="flex sm:items-center gap-0 sm:gap-8">

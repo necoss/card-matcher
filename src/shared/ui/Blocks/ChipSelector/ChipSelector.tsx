@@ -9,17 +9,19 @@ export const ChipSelector = <T extends string | number>({
   options,
   value,
   onChange,
+  disabled,
   className,
 }: ChipSelectorProps<T>) => (
   <ToggleGroup
     value={[String(value)] as readonly string[]}
     onValueChange={(values: readonly string[]) => {
+      if (disabled) return
       const strVal = values.find((v) => v !== String(value)) ?? values[0]
       if (strVal == null) return
       const matched = options.find((o) => String(o.value) === strVal)
       if (matched) onChange(matched.value)
     }}
-    className={cn('flex flex-wrap gap-2', className)}
+    className={cn('flex flex-wrap gap-2', disabled && 'opacity-60 pointer-events-none', className)}
   >
     {options.map((option) => (
       <Toggle

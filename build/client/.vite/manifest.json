@@ -10,12 +10,12 @@
       "_Layout-81_TmN-b.js"
     ]
   },
-  "_storageCalculation-CkG6t_xx.js": {
-    "file": "assets/storageCalculation-CkG6t_xx.js",
+  "_storageCalculation-DyoDkDma.js": {
+    "file": "assets/storageCalculation-DyoDkDma.js",
     "name": "storageCalculation"
   },
-  "_ui-CxK9a7c_.js": {
-    "file": "assets/ui-CxK9a7c_.js",
+  "_ui-Bfg8zCKn.js": {
+    "file": "assets/ui-Bfg8zCKn.js",
     "name": "ui",
     "imports": [
       "_Layout-81_TmN-b.js"
@@ -28,48 +28,48 @@
     "isEntry": true
   },
   "app/root.tsx?__react-router-build-client-route": {
-    "file": "assets/root-BL3KQOJy.js",
+    "file": "assets/root-7jijgDBm.js",
     "name": "root",
     "src": "app/root.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
-      "_ui-CxK9a7c_.js"
+      "_ui-Bfg8zCKn.js"
     ],
     "css": [
-      "assets/root-CBJ515Dt.css"
+      "assets/root-Ct56pk5v.css"
     ]
   },
   "app/routes/_index.tsx?__react-router-build-client-route": {
-    "file": "assets/_index-CGNlP1iI.js",
+    "file": "assets/_index-DxrjdiAs.js",
     "name": "_index",
     "src": "app/routes/_index.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
       "_faq-CaPrCG7n.js",
-      "_storageCalculation-CkG6t_xx.js",
-      "_ui-CxK9a7c_.js",
+      "_storageCalculation-DyoDkDma.js",
+      "_ui-Bfg8zCKn.js",
       "_Layout-81_TmN-b.js"
     ]
   },
   "app/routes/calculator.tsx?__react-router-build-client-route": {
-    "file": "assets/calculator-Bd0m4nDT.js",
+    "file": "assets/calculator-4QGBonz2.js",
     "name": "calculator",
     "src": "app/routes/calculator.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
-      "_storageCalculation-CkG6t_xx.js",
-      "_ui-CxK9a7c_.js",
+      "_storageCalculation-DyoDkDma.js",
+      "_ui-Bfg8zCKn.js",
       "_Layout-81_TmN-b.js"
     ]
   },
   "app/routes/faq.tsx?__react-router-build-client-route": {
-    "file": "assets/faq-CaxJItGV.js",
+    "file": "assets/faq-AB_HGM_9.js",
     "name": "faq",
     "src": "app/routes/faq.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
       "_faq-CaPrCG7n.js",
-      "_storageCalculation-CkG6t_xx.js",
+      "_storageCalculation-DyoDkDma.js",
       "_Layout-81_TmN-b.js"
     ]
   }

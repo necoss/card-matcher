@@ -1,4 +1,5 @@
 export * from './Button'
+export * from './InfoTooltip'
 export * from './ChipSelector'
 export * from './NumberInput'
 export * from './Stepper'

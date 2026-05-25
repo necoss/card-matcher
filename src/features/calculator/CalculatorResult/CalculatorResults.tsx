@@ -1,4 +1,4 @@
-import { AnimatePresence,motion } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 
 import type { CalculatorResultsProps } from './CalculatorResults.model'
 
@@ -16,21 +16,21 @@ export const CalculatorResults = ({ result }: CalculatorResultsProps) => (
       </h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="p-4 sm:p-5 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] min-w-0">
-          <p className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide mb-2">
+        <div className="flex flex-col justify-center min-h-[10rem] sm:min-h-[11rem] p-6 sm:p-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] min-w-0">
+          <p className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide mb-3">
             Минимальный объём
           </p>
-          <div className="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)] mb-1 break-words">
+          <div className="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)] mb-2 break-words">
             {result.minimumLabel}
           </div>
           <p className="text-xs text-[var(--color-text-muted)] break-words">{result.details}</p>
         </div>
 
-        <div className="p-4 sm:p-5 rounded-2xl bg-[var(--color-primary)] text-[var(--color-on-primary)] min-w-0">
-          <p className="text-xs font-medium text-[var(--color-on-primary)]/60 uppercase tracking-wide mb-2">
+        <div className="flex flex-col justify-center min-h-[10rem] sm:min-h-[11rem] p-6 sm:p-8 rounded-2xl bg-[var(--color-primary)] text-[var(--color-on-primary)] min-w-0">
+          <p className="text-xs font-medium text-[var(--color-on-primary)]/60 uppercase tracking-wide mb-3">
             Рекомендуемый объём
           </p>
-          <div className="text-2xl sm:text-3xl font-bold text-[var(--color-on-primary)] mb-1 break-words">
+          <div className="text-2xl sm:text-3xl font-bold text-[var(--color-on-primary)] mb-2 break-words">
             {result.recommendedLabel}
           </div>
           <p className="text-xs text-[var(--color-on-primary)]/50 break-words">{result.details}</p>

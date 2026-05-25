@@ -13,16 +13,28 @@ export const FAQItem = ({ question, answer }: FAQItemProps) => {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="w-full py-4 flex items-start sm:items-center justify-between text-left gap-3 sm:gap-4 hover:text-[var(--color-accent)] transition-colors"
+        className="w-full py-4 flex items-center justify-between text-left gap-3 sm:gap-4 hover:text-[var(--color-accent)] transition-colors"
       >
         <span className="flex-1 min-w-0 text-sm font-medium text-[var(--color-text-primary)] pr-1">{question}</span>
         <span
+          aria-hidden
           className={cn(
-            'flex-shrink-0 w-5 h-5 flex items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] transition-transform duration-200',
-            open && 'rotate-45 border-[var(--color-accent)] text-[var(--color-accent)]',
+            'relative flex-shrink-0 size-5 rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] transition-colors duration-200',
+            open && 'border-[var(--color-accent)] text-[var(--color-accent)]',
           )}
         >
-          +
+          <span
+            className={cn(
+              'absolute left-1/2 top-1/2 h-0.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current transition-transform duration-200',
+              open && 'rotate-45',
+            )}
+          />
+          <span
+            className={cn(
+              'absolute left-1/2 top-1/2 h-0.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-current transition-transform duration-200',
+              open ? '-rotate-45' : 'rotate-90',
+            )}
+          />
         </span>
       </button>
 

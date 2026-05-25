@@ -5,5 +5,6 @@ export type NumberInputProps = {
   max?: number
   step?: number
   hint?: string
+  disabled?: boolean
   className?: string
 }

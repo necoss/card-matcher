@@ -1,17 +1,19 @@
 import { useState } from 'react'
 
 import {
-  ACTIVITY_OPTIONS,
-  BITRATE_HINTS,
-  CODEC_OPTIONS,
-  getResolutionFpsOption,
-  QUALITY_OPTIONS,
-  RESOLUTION_FPS_OPTIONS,
+    ACTIVITY_OPTIONS,
+    BITRATE_HINTS,
+    CODEC_OPTIONS,
+    getResolutionFpsOption,
+    QUALITY_OPTIONS,
+    RESOLUTION_FPS_OPTIONS,
 } from '@shared/constants/calculatorData'
 import { Button } from '@shared/ui/Blocks/Button'
 import { ChipSelector } from '@shared/ui/Blocks/ChipSelector'
 import { NumberInput } from '@shared/ui/Blocks/NumberInput'
 import { Select } from '@shared/ui/Blocks/Select'
+import { Stepper } from '@shared/ui/Blocks/Stepper'
+import { InfoTooltip } from '@shared/ui/Blocks/InfoTooltip'
 import { ToggleSwitch } from '@shared/ui/Blocks/ToggleSwitch'
 import { Label } from '@shared/ui/Typography'
 import type { Codec, QualityLevel, ResolutionFps, SceneActivity } from '@shared/utils/storageCalculation'
@@ -29,6 +31,8 @@ export const AdvancedCalculatorForm = ({ onResult }: AdvancedCalculatorFormProps
   const [sceneActivity, setSceneActivity] = useState<SceneActivity>('medium')
   const [bitrateMbps, setBitrateMbps] = useState(defaultResolutionOption?.bitrate ?? 4)
   const [hoursPerDay, setHoursPerDay] = useState(8)
+  const [hoursBeforeContinuous, setHoursBeforeContinuous] = useState(8)
+  const [continuousRecording, setContinuousRecording] = useState(false)
   const [storageDays, setStorageDays] = useState(30)
 
   const resolutionOption = getResolutionFpsOption(resolution)
@@ -40,6 +44,16 @@ export const AdvancedCalculatorForm = ({ onResult }: AdvancedCalculatorFormProps
     setResolution(value)
     const option = getResolutionFpsOption(value)
     if (option) setBitrateMbps(option.bitrate)
+  }
+
+  const handleContinuousRecordingChange = (checked: boolean) => {
+    setContinuousRecording(checked)
+    if (checked) {
+      if (hoursPerDay !== 24) setHoursBeforeContinuous(hoursPerDay)
+      setHoursPerDay(24)
+    } else {
+      setHoursPerDay(hoursBeforeContinuous)
+    }
   }
 
   const handleCalculate = () => {
@@ -59,6 +73,11 @@ export const AdvancedCalculatorForm = ({ onResult }: AdvancedCalculatorFormProps
   return (
     <div className="space-y-7">
       <div>
+        <Label>Количество камер</Label>
+        <Stepper value={cameras} onChange={setCameras} min={1} max={64} />
+      </div>
+
+      <div>
         <Label>Формат видео (кодек)</Label>
         <ChipSelector
           options={CODEC_OPTIONS.map((o) => ({ value: o.value, label: o.label }))}
@@ -73,25 +92,22 @@ export const AdvancedCalculatorForm = ({ onResult }: AdvancedCalculatorFormProps
       <div>
         <div className="flex items-center gap-1.5 mb-1.5">
           <Label className="mb-0">Качество видео</Label>
-          <span
-            title="Влияет на эффективный битрейт записи"
-            className="cursor-help text-[var(--color-text-muted)] text-xs"
-          >
-            ⓘ
-          </span>
+          <InfoTooltip content="Влияет на эффективный битрейт записи" />
         </div>
-        <ToggleSwitch options={QUALITY_OPTIONS} value={videoQuality} onChange={setVideoQuality} />
+        <ToggleSwitch
+          options={QUALITY_OPTIONS.map((q) => ({ value: q.value, label: q.label }))}
+          value={videoQuality}
+          onChange={setVideoQuality}
+        />
+        <p className="mt-1.5 text-xs text-[var(--color-text-muted)]">
+          {QUALITY_OPTIONS.find((q) => q.value === videoQuality)?.hint}
+        </p>
       </div>
 
       <div>
         <div className="flex items-center gap-1.5 mb-1.5">
           <Label className="mb-0">Активность в кадре</Label>
-          <span
-            title="Насыщенность движением в кадре — влияет на VBR"
-            className="cursor-help text-[var(--color-text-muted)] text-xs"
-          >
-            ⓘ
-          </span>
+          <InfoTooltip content="Насыщенность движением в кадре — влияет на VBR (переменный битрейт: чем больше движения, тем выше фактический объём записи)" />
         </div>
         <ToggleSwitch
           options={ACTIVITY_OPTIONS.map((a) => ({ value: a.value, label: a.label }))}
@@ -128,25 +144,39 @@ export const AdvancedCalculatorForm = ({ onResult }: AdvancedCalculatorFormProps
       </div>
 
       <div>
-        <Label>Число камер</Label>
-        <NumberInput value={cameras} onChange={setCameras} min={1} max={128} step={1} />
-      </div>
-
-      <div>
         <Label>Часов работы в сутки</Label>
         <NumberInput
           value={hoursPerDay}
-          onChange={setHoursPerDay}
+          onChange={(value) => {
+            setHoursPerDay(value)
+            if (!continuousRecording) setHoursBeforeContinuous(value)
+          }}
           min={1}
           max={24}
           step={1}
-          hint="24 — непрерывная запись"
+          disabled={continuousRecording}
         />
+        <label className="mt-2 flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            checked={continuousRecording}
+            onChange={(e) => handleContinuousRecordingChange(e.target.checked)}
+            className="size-4 rounded border-[var(--color-border)] accent-[var(--color-accent)] cursor-pointer"
+          />
+          <span className="text-sm text-[var(--color-text-secondary)]">Постоянная запись</span>
+        </label>
       </div>
 
       <div>
         <Label>Длительность хранения, дней</Label>
-        <NumberInput value={storageDays} onChange={setStorageDays} min={1} max={365} step={1} />
+        <NumberInput
+          value={storageDays}
+          onChange={setStorageDays}
+          min={1}
+          max={365}
+          step={1}
+          hint="от 1 до 365 дней"
+        />
       </div>
 
       <Button size="lg" className="w-full" onClick={handleCalculate}>

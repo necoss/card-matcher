@@ -7,5 +7,6 @@ export type ChipSelectorProps<T extends string | number> = {
   options: ChipOption<T>[]
   value: T
   onChange: (value: T) => void
+  disabled?: boolean
   className?: string
 }

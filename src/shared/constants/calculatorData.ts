@@ -1,4 +1,4 @@
-import type { Codec, QualityLevel, Resolution, ResolutionFps, SceneActivity } from '../utils/storageCalculation'
+import type { Codec, QualityLevel, Resolution, ResolutionFps, SceneActivity } from '../utils/storageCalculation';
 
 export const RESOLUTIONS: { value: Resolution; label: string }[] = [
   { value: '480p',  label: '480p' },
@@ -32,24 +32,26 @@ export const CODEC_OPTIONS: { value: Codec; label: string; description: string }
   { value: 'AV1',    label: 'AV1',    description: 'Передовой, до 65% лучше H.264' },
 ]
 
-export const QUALITY_OPTIONS: { value: QualityLevel; label: string }[] = [
-  { value: 'high',   label: 'Высокая' },
-  { value: 'medium', label: 'Средняя' },
-  { value: 'low',    label: 'Низкая' },
+export const QUALITY_OPTIONS: { value: QualityLevel; label: string; hint: string }[] = [
+  { value: 'high',   label: 'Высокое', hint: 'Максимальная детализация, полный битрейт' },
+  { value: 'medium', label: 'Среднее', hint: 'Баланс качества и объёма' },
+  { value: 'low',    label: 'Низкое',  hint: 'Сниженный битрейт, экономия места' },
 ]
 
 export const ACTIVITY_OPTIONS: { value: SceneActivity; label: string; hint: string }[] = [
-  { value: 'high',   label: 'Высокая', hint: 'Движение постоянно' },
+  { value: 'high',   label: 'Постоянная', hint: 'Движение постоянно' },
   { value: 'medium', label: 'Средняя', hint: 'Периодическое движение' },
   { value: 'low',    label: 'Низкая',  hint: 'Почти статичная сцена' },
 ]
 
 export const STORAGE_DAYS_OPTIONS: { value: number; label: string }[] = [
-  { value: 7,  label: '7 дней' },
-  { value: 14, label: '14 дней' },
-  { value: 30, label: '30 дней' },
-  { value: 60, label: '60 дней' },
-  { value: 90, label: '90 дней' },
+  { value: 7,   label: '7 дней' },
+  { value: 14,  label: '14 дней' },
+  { value: 30,  label: '30 дней' },
+  { value: 60,  label: '60 дней' },
+  { value: 90,  label: '90 дней' },
+  { value: 120, label: '120 дней' },
+  { value: 180, label: '180 дней' },
 ]
 
 export const BITRATE_HINTS: Record<string, string> = {

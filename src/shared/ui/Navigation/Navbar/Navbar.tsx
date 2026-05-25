@@ -4,11 +4,13 @@ import { Link, useLocation } from 'react-router-dom'
 import { AnimatePresence,motion } from 'motion/react'
 
 import { ROUTES } from '../../../constants/routes'
-import { useMediaQuery } from '../../../hooks/useMediaQuery'
 import { useScrollDirection } from '../../../hooks/useScrollDirection'
 import { cn } from '../../../utils/cn'
 import { Button } from '../../Blocks/Button'
 import { ThemeToggle } from '../../Blocks/ThemeToggle'
+
+/** Navbar height (h-16) — hide/show only after scrolling past this offset */
+const SCROLL_HIDE_THRESHOLD = 64
 
 const navLinks = [
   { label: 'Главная', to: ROUTES.HOME },
@@ -17,12 +19,13 @@ const navLinks = [
 ]
 
 export const Navbar = () => {
-  const scrollDir = useScrollDirection()
-  const isDesktop = useMediaQuery('(min-width: 768px)')
+  const { isHidden: isHiddenByScroll } = useScrollDirection({
+    hideThreshold: SCROLL_HIDE_THRESHOLD,
+  })
   const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  const isHidden = isDesktop && scrollDir === 'down' && !mobileOpen
+  const isHidden = isHiddenByScroll && !mobileOpen
 
   useEffect(() => {
     if (!mobileOpen) return
@@ -35,9 +38,12 @@ export const Navbar = () => {
 
   return (
     <motion.header
-      animate={{ y: isHidden ? -100 : 0, opacity: isHidden ? 0 : 1 }}
+      animate={{ y: isHidden ? '-100%' : 0 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className="sticky top-0 z-50 bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border)]"
+      className={cn(
+        'sticky top-0 z-50 bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border)]',
+        isHidden && 'pointer-events-none',
+      )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">

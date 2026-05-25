@@ -29,7 +29,7 @@ export const ToggleSwitch = <T extends string>({
         value={option.value}
         aria-label={option.label}
         className={cn(
-          'flex-1 min-w-0 px-2 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium text-center transition-all duration-150 cursor-pointer',
+          'flex-1 min-w-0 px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium text-center transition-all duration-150 cursor-pointer',
           value === option.value
             ? 'bg-[var(--color-accent)] text-[var(--color-on-primary)] shadow-sm'
             : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]',
