@@ -24,21 +24,11 @@ export default defineConfig({
       },
     },
   ],
-  server: {
-    proxy: {
-      '/api/onliner': {
-        target: 'https://catalog.api.onliner.by',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api\/onliner/, ''),
-        secure: true,
-      },
-    },
-  },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@shared": path.resolve(__dirname, "./src/shared"),
-      "@features": path.resolve(__dirname, "./src/features"),
+      '@': path.resolve(__dirname, './src'),
+      '@shared': path.resolve(__dirname, './src/shared'),
+      '@features': path.resolve(__dirname, './src/features'),
     },
   },
 })

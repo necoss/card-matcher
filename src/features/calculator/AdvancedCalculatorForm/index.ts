@@ -1,2 +1,2 @@
 export * from './AdvancedCalculatorForm.tsx'
-export * from './AdvancedCalculatorForm.model.ts'
+export * from './AdvancedCalculatorForm.model'

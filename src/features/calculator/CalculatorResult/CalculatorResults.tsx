@@ -1,6 +1,6 @@
 import { AnimatePresence,motion } from 'motion/react'
 
-import type { CalculatorResultsProps } from './CalculatorResults.model.ts'
+import type { CalculatorResultsProps } from './CalculatorResults.model'
 
 export const CalculatorResults = ({ result }: CalculatorResultsProps) => (
   <AnimatePresence>
@@ -15,25 +15,25 @@ export const CalculatorResults = ({ result }: CalculatorResultsProps) => (
         Необходимый объём хранилища
       </h3>
 
-      <div className="grid grid-cols-2 gap-4">
-        <div className="p-5 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="p-4 sm:p-5 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] min-w-0">
           <p className="text-xs font-medium text-[var(--color-text-muted)] uppercase tracking-wide mb-2">
             Минимальный объём
           </p>
-          <div className="text-3xl font-bold text-[var(--color-text-primary)] mb-1">
+          <div className="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)] mb-1 break-words">
             {result.minimumLabel}
           </div>
-          <p className="text-xs text-[var(--color-text-muted)]">{result.details}</p>
+          <p className="text-xs text-[var(--color-text-muted)] break-words">{result.details}</p>
         </div>
 
-        <div className="p-5 rounded-2xl bg-[var(--color-primary)] text-white">
-          <p className="text-xs font-medium text-white/60 uppercase tracking-wide mb-2">
+        <div className="p-4 sm:p-5 rounded-2xl bg-[var(--color-primary)] text-[var(--color-on-primary)] min-w-0">
+          <p className="text-xs font-medium text-[var(--color-on-primary)]/60 uppercase tracking-wide mb-2">
             Рекомендуемый объём
           </p>
-          <div className="text-3xl font-bold text-white mb-1">
+          <div className="text-2xl sm:text-3xl font-bold text-[var(--color-on-primary)] mb-1 break-words">
             {result.recommendedLabel}
           </div>
-          <p className="text-xs text-white/50">{result.details}</p>
+          <p className="text-xs text-[var(--color-on-primary)]/50 break-words">{result.details}</p>
         </div>
       </div>
 

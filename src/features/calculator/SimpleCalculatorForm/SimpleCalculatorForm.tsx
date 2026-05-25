@@ -1,15 +1,15 @@
 import { useState } from 'react'
 
-import { RESOLUTIONS, STORAGE_DAYS_OPTIONS } from '@shared/constants/calculatorData.ts'
+import { RESOLUTIONS, STORAGE_DAYS_OPTIONS } from '@shared/constants/calculatorData'
 import { Button, ChipSelector, Stepper, ToggleSwitch } from '@shared/ui'
 import { Label } from '@shared/ui/Typography'
-import type { RecordingMode,Resolution } from '@shared/utils/storageCalculation.ts'
-import { calculateSimple } from '@shared/utils/storageCalculation.ts'
+import type { RecordingMode, Resolution } from '@shared/utils/storageCalculation'
+import { calculateSimple } from '@shared/utils/storageCalculation'
 
-import type { SimpleCalculatorFormProps } from './SimpleCalculatorForm.model.ts'
+import type { SimpleCalculatorFormProps } from './SimpleCalculatorForm.model'
 
 export const SimpleCalculatorForm = ({ onResult }: SimpleCalculatorFormProps) => {
-  const [cameras, setCameras] = useState(2)
+  const [cameras, setCameras] = useState(1)
   const [resolution, setResolution] = useState<Resolution>('1080p')
   const [recordingMode, setRecordingMode] = useState<RecordingMode>('continuous')
   const [storageDays, setStorageDays] = useState(30)

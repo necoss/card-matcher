@@ -18,7 +18,8 @@ export const ToggleSwitch = <T extends string>({
       if (next) onChange(next as T)
     }}
     className={cn(
-      'inline-flex p-1 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)]',
+      'flex w-full max-w-full p-1 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)]',
+      options.length > 2 ? 'flex-wrap sm:flex-nowrap' : 'flex-nowrap',
       className,
     )}
   >
@@ -28,9 +29,9 @@ export const ToggleSwitch = <T extends string>({
         value={option.value}
         aria-label={option.label}
         className={cn(
-          'px-4 py-1.5 rounded-md text-sm font-medium transition-all duration-150 cursor-pointer',
+          'flex-1 min-w-0 px-2 sm:px-4 py-1.5 rounded-md text-xs sm:text-sm font-medium text-center transition-all duration-150 cursor-pointer',
           value === option.value
-            ? 'bg-[var(--color-primary)] text-white shadow-sm'
+            ? 'bg-[var(--color-accent)] text-[var(--color-on-primary)] shadow-sm'
             : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]',
         )}
       >

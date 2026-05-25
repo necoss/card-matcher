@@ -1,7 +1,7 @@
 import type { MetaFunction } from "react-router";
 
 import { FAQItem } from "@features/faq";
-import { FAQ_ITEMS } from "@shared/constants/calculatorData.ts";
+import { FAQ_ITEMS } from '@shared/constants/calculatorData'
 import { Container } from "@shared/ui/Layout";
 import { motion } from "motion/react";
 
@@ -14,7 +14,7 @@ export const meta: MetaFunction = () => {
 
 export default function FAQRoute() {
   return (
-    <section className="py-16 md:py-24 min-h-[calc(100vh-64px)]">
+    <section className="py-12 sm:py-16 md:py-24 min-h-[calc(100vh-64px)]">
       <Container narrow>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ export default function FAQRoute() {
               <h2 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-text-muted)] mb-3">
                 {section.category}
               </h2>
-              <div className="bg-white rounded-2xl border border-[var(--color-border)] px-6 divide-y divide-[var(--color-border)]">
+              <div className="bg-[var(--color-bg)] rounded-2xl border border-[var(--color-border)] px-4 sm:px-6 divide-y divide-[var(--color-border)]">
                 {section.items.map((item) => (
                   <FAQItem
                     key={item.question}

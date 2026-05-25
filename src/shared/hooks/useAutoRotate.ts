@@ -12,7 +12,7 @@ export const useAutoRotate = (count: number, intervalMs = 3000) => {
   useEffect(() => {
     if (hoveredIndex !== null) {
       if (timer.current) clearInterval(timer.current)
-      return
+      return () => {}
     }
 
     timer.current = setInterval(() => {

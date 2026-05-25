@@ -1,2 +1,2 @@
 export * from './CalculatorResults.tsx'
-export * from './CalculatorResults.model.ts'
+export * from './CalculatorResults.model'

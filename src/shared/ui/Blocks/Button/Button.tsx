@@ -18,7 +18,7 @@ export const Button = ({
 
   const variants = {
     primary:
-      'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-light)] active:scale-[0.98]',
+      'bg-[var(--color-accent)] text-[var(--color-on-primary)] hover:bg-[var(--color-accent-hover)] active:scale-[0.98]',
     secondary:
       'bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:bg-[var(--color-surface-dark)] active:scale-[0.98]',
     ghost:

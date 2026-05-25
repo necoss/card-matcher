@@ -24,19 +24,19 @@ export const Select = ({ value, onChange, options, placeholder, className }: Sel
   >
     <BaseSelect.Trigger
       className={cn(
-        'w-full flex items-center justify-between px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors cursor-pointer',
+        'w-full min-w-0 flex items-center justify-between gap-2 px-4 py-2.5 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)] text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] transition-colors cursor-pointer',
         className,
       )}
     >
-      <BaseSelect.Value placeholder={placeholder} />
-      <BaseSelect.Icon className="ml-2 text-[var(--color-text-muted)]">
+      <BaseSelect.Value placeholder={placeholder} className="truncate text-left" />
+      <BaseSelect.Icon className="ml-auto shrink-0 text-[var(--color-text-muted)]">
         <ChevronIcon />
       </BaseSelect.Icon>
     </BaseSelect.Trigger>
 
     <BaseSelect.Portal>
       <BaseSelect.Positioner sideOffset={4} alignItemWithTrigger={false}>
-        <BaseSelect.Popup className="z-50 min-w-[var(--anchor-width)] rounded-lg border border-[var(--color-border)] bg-white shadow-lg py-1 overflow-auto max-h-60">
+        <BaseSelect.Popup className="z-50 min-w-[var(--anchor-width)] rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)] shadow-lg py-1 overflow-auto max-h-60">
           <BaseSelect.List>
             {options.map((option) => (
               <BaseSelect.Item
@@ -44,7 +44,7 @@ export const Select = ({ value, onChange, options, placeholder, className }: Sel
                 value={option.value}
                 className="flex items-center gap-2 px-3 py-2 text-sm text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] cursor-pointer data-[highlighted]:bg-[var(--color-surface)] outline-none"
               >
-                <BaseSelect.ItemIndicator className="w-4 flex-shrink-0 text-[var(--color-primary)]">
+                <BaseSelect.ItemIndicator className="w-4 flex-shrink-0 text-[var(--color-accent)]">
                   <CheckIcon />
                 </BaseSelect.ItemIndicator>
                 <BaseSelect.ItemText>{option.label}</BaseSelect.ItemText>

@@ -21,6 +21,9 @@ export const RESOLUTION_FPS_OPTIONS: { value: ResolutionFps; label: string; bitr
   { value: '4K_30',    label: '4K 30fps',    bitrate: 16.0 },
 ]
 
+export const getResolutionFpsOption = (value: ResolutionFps) =>
+  RESOLUTION_FPS_OPTIONS.find((r) => r.value === value)
+
 export const CODEC_OPTIONS: { value: Codec; label: string; description: string }[] = [
   { value: 'MJPEG',  label: 'MJPEG',  description: 'Без сжатия, максимальный объём' },
   { value: 'H.264',  label: 'H.264',  description: 'Стандарт, широкая совместимость' },
@@ -71,16 +74,16 @@ export const WHY_FEATURES = [
     description: 'Поддержка различных форматов видео, битрейтов и разрешений. От смартфонов до профессиональных камер.',
   },
   {
-    id: 'links',
-    icon: '🏪',
-    title: 'Прямые ссылки',
-    description: 'После расчёта получите прямые ссылки на подходящие карты памяти в каталог Онлайнер для быстрой покупки.',
+    id: 'results',
+    icon: '📊',
+    title: 'Два объёма',
+    description: 'Минимальный объём для ваших параметров и рекомендуемый с запасом 15% под файловую систему и пики битрейта.',
   },
   {
-    id: 'recommendations',
+    id: 'modes',
     icon: '🎯',
-    title: 'Умные рекомендации',
-    description: 'Система подбирает оптимальные варианты с учётом скорости, класса и совместимости устройства.',
+    title: 'Два режима',
+    description: 'Простой — для быстрой оценки, продвинутый — с кодеком, битрейтом и активностью сцены для точного расчёта.',
   },
 ]
 

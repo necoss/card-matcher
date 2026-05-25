@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 
 export default function CalculatorRoute() {
   return (
-    <section className="py-12 md:py-16 bg-[var(--color-surface)] min-h-[calc(100vh-64px)]">
+    <section className="py-8 sm:py-12 md:py-16 bg-[var(--color-surface)] min-h-[calc(100vh-64px)]">
       <Container>
         <Calculator />
       </Container>

@@ -4,25 +4,28 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "react-router";
+} from 'react-router'
 
-import {Footer, Navbar} from "@shared/ui";
+import { ThemeProvider, THEME_STORAGE_KEY } from '@shared/theme'
+import { Footer, Navbar } from '@shared/ui'
 
-import { QueryProvider } from "./providers/QueryProvider";
+import './app.css'
 
-import "./app.css";
+const themeInitScript = `(function(){try{var k='${THEME_STORAGE_KEY}';var t=localStorage.getItem(k);var d=t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.classList.toggle('dark',d);document.documentElement.style.colorScheme=d?'dark':'light'}catch(e){}})();`
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru">
+    <html lang="ru" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
-          content="Калькулятор ёмкости карт памяти для систем видеонаблюдения. Рассчитайте необходимый объём и подберите подходящие карты памяти."
+          content="Калькулятор ёмкости карт памяти для систем видеонаблюдения. Рассчитайте минимальный и рекомендуемый объём хранилища."
         />
         <title>CardMatcher — Калькулятор ёмкости карт памяти</title>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -42,19 +45,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  );
+  )
 }
 
 export default function App() {
   return (
-    <QueryProvider>
-      <div className="min-h-screen flex flex-col">
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col overflow-x-hidden">
         <Navbar />
         <main className="flex-1">
           <Outlet />
         </main>
         <Footer />
       </div>
-    </QueryProvider>
-  );
+    </ThemeProvider>
+  )
 }

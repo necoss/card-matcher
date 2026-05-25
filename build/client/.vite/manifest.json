@@ -1,20 +1,24 @@
 {
-  "_Button-B7ZF836U.js": {
-    "file": "assets/Button-B7ZF836U.js",
-    "name": "Button",
+  "_Layout-81_TmN-b.js": {
+    "file": "assets/Layout-81_TmN-b.js",
+    "name": "Layout"
+  },
+  "_faq-CaPrCG7n.js": {
+    "file": "assets/faq-CaPrCG7n.js",
+    "name": "faq",
     "imports": [
-      "_cn--xc5ULUJ.js"
+      "_Layout-81_TmN-b.js"
     ]
   },
-  "_cn--xc5ULUJ.js": {
-    "file": "assets/cn--xc5ULUJ.js",
-    "name": "cn"
+  "_storageCalculation-CkG6t_xx.js": {
+    "file": "assets/storageCalculation-CkG6t_xx.js",
+    "name": "storageCalculation"
   },
-  "_constants-BL5vlB3X.js": {
-    "file": "assets/constants-BL5vlB3X.js",
-    "name": "constants",
+  "_ui-CxK9a7c_.js": {
+    "file": "assets/ui-CxK9a7c_.js",
+    "name": "ui",
     "imports": [
-      "_cn--xc5ULUJ.js"
+      "_Layout-81_TmN-b.js"
     ]
   },
   "app/entry.client.tsx": {
@@ -24,47 +28,49 @@
     "isEntry": true
   },
   "app/root.tsx?__react-router-build-client-route": {
-    "file": "assets/root-C11y2XgZ.js",
+    "file": "assets/root-BL3KQOJy.js",
     "name": "root",
     "src": "app/root.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
-      "_cn--xc5ULUJ.js",
-      "_Button-B7ZF836U.js"
+      "_ui-CxK9a7c_.js"
     ],
     "css": [
-      "assets/root-8tZxph8e.css"
+      "assets/root-CBJ515Dt.css"
     ]
   },
   "app/routes/_index.tsx?__react-router-build-client-route": {
-    "file": "assets/_index-DIvpBle-.js",
+    "file": "assets/_index-CGNlP1iI.js",
     "name": "_index",
     "src": "app/routes/_index.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
-      "_constants-BL5vlB3X.js",
-      "_cn--xc5ULUJ.js"
+      "_faq-CaPrCG7n.js",
+      "_storageCalculation-CkG6t_xx.js",
+      "_ui-CxK9a7c_.js",
+      "_Layout-81_TmN-b.js"
     ]
   },
   "app/routes/calculator.tsx?__react-router-build-client-route": {
-    "file": "assets/calculator-BhXmqdDk.js",
+    "file": "assets/calculator-Bd0m4nDT.js",
     "name": "calculator",
     "src": "app/routes/calculator.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
-      "_constants-BL5vlB3X.js",
-      "_cn--xc5ULUJ.js",
-      "_Button-B7ZF836U.js"
+      "_storageCalculation-CkG6t_xx.js",
+      "_ui-CxK9a7c_.js",
+      "_Layout-81_TmN-b.js"
     ]
   },
   "app/routes/faq.tsx?__react-router-build-client-route": {
-    "file": "assets/faq-CAE68FQB.js",
+    "file": "assets/faq-CaxJItGV.js",
     "name": "faq",
     "src": "app/routes/faq.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
-      "_constants-BL5vlB3X.js",
-      "_cn--xc5ULUJ.js"
+      "_faq-CaPrCG7n.js",
+      "_storageCalculation-CkG6t_xx.js",
+      "_Layout-81_TmN-b.js"
     ]
   }
 }

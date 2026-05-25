@@ -13,9 +13,9 @@ export const FAQItem = ({ question, answer }: FAQItemProps) => {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="w-full py-4 flex items-center justify-between text-left gap-4 hover:text-[var(--color-accent)] transition-colors"
+        className="w-full py-4 flex items-start sm:items-center justify-between text-left gap-3 sm:gap-4 hover:text-[var(--color-accent)] transition-colors"
       >
-        <span className="text-sm font-medium text-[var(--color-text-primary)]">{question}</span>
+        <span className="flex-1 min-w-0 text-sm font-medium text-[var(--color-text-primary)] pr-1">{question}</span>
         <span
           className={cn(
             'flex-shrink-0 w-5 h-5 flex items-center justify-center rounded-full border border-[var(--color-border)] text-[var(--color-text-muted)] transition-transform duration-200',
@@ -35,7 +35,7 @@ export const FAQItem = ({ question, answer }: FAQItemProps) => {
             transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <p className="pb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed pr-8">
+            <p className="pb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed pr-2 sm:pr-8 break-words">
               {answer}
             </p>
           </motion.div>
