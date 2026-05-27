@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+build/client
 build
 *.local
 .cursor
@@ -25,3 +26,4 @@ build
 *.sln
 *.sw?
 .agents
+.pnpm-store

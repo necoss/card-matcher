@@ -1,76 +1,76 @@
 {
-  "_Layout-81_TmN-b.js": {
-    "file": "assets/Layout-81_TmN-b.js",
+  "_Layout-BmcVw-Oo.js": {
+    "file": "assets/Layout-BmcVw-Oo.js",
     "name": "Layout"
   },
-  "_faq-ImkjlWHB.js": {
-    "file": "assets/faq-ImkjlWHB.js",
+  "_faq-BPM4wWG4.js": {
+    "file": "assets/faq-BPM4wWG4.js",
     "name": "faq",
     "imports": [
-      "_Layout-81_TmN-b.js"
+      "_Layout-BmcVw-Oo.js"
     ]
   },
-  "_storageCalculation-mS2kf19A.js": {
-    "file": "assets/storageCalculation-mS2kf19A.js",
+  "_storageCalculation-_u9i21ek.js": {
+    "file": "assets/storageCalculation-_u9i21ek.js",
     "name": "storageCalculation"
   },
-  "_ui-B6kIXzru.js": {
-    "file": "assets/ui-B6kIXzru.js",
+  "_ui-BN_PIWnk.js": {
+    "file": "assets/ui-BN_PIWnk.js",
     "name": "ui",
     "imports": [
-      "_Layout-81_TmN-b.js"
+      "_Layout-BmcVw-Oo.js"
     ]
   },
   "app/entry.client.tsx": {
-    "file": "assets/entry.client-BWxjU3TI.js",
+    "file": "assets/entry.client-la_KkjCS.js",
     "name": "entry.client",
     "src": "app/entry.client.tsx",
     "isEntry": true
   },
   "app/root.tsx?__react-router-build-client-route": {
-    "file": "assets/root-C35FIWvX.js",
+    "file": "assets/root-sLxLw8UC.js",
     "name": "root",
     "src": "app/root.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
-      "_ui-B6kIXzru.js"
+      "_ui-BN_PIWnk.js"
     ],
     "css": [
-      "assets/root-DlZoV5Dk.css"
+      "assets/root-DAqFvrCS.css"
     ]
   },
   "app/routes/_index.tsx?__react-router-build-client-route": {
-    "file": "assets/_index-Bj1Wq8Xc.js",
+    "file": "assets/_index-BrPnQK6x.js",
     "name": "_index",
     "src": "app/routes/_index.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
-      "_faq-ImkjlWHB.js",
-      "_storageCalculation-mS2kf19A.js",
-      "_ui-B6kIXzru.js",
-      "_Layout-81_TmN-b.js"
+      "_faq-BPM4wWG4.js",
+      "_storageCalculation-_u9i21ek.js",
+      "_ui-BN_PIWnk.js",
+      "_Layout-BmcVw-Oo.js"
     ]
   },
   "app/routes/calculator.tsx?__react-router-build-client-route": {
-    "file": "assets/calculator-C7S_kZt2.js",
+    "file": "assets/calculator-DeGV1jXg.js",
     "name": "calculator",
     "src": "app/routes/calculator.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
-      "_storageCalculation-mS2kf19A.js",
-      "_ui-B6kIXzru.js",
-      "_Layout-81_TmN-b.js"
+      "_storageCalculation-_u9i21ek.js",
+      "_ui-BN_PIWnk.js",
+      "_Layout-BmcVw-Oo.js"
     ]
   },
   "app/routes/faq.tsx?__react-router-build-client-route": {
-    "file": "assets/faq-BEj0eoZD.js",
+    "file": "assets/faq-B2Chh7OH.js",
     "name": "faq",
     "src": "app/routes/faq.tsx?__react-router-build-client-route",
     "isEntry": true,
     "imports": [
-      "_faq-ImkjlWHB.js",
-      "_storageCalculation-mS2kf19A.js",
-      "_Layout-81_TmN-b.js"
+      "_faq-BPM4wWG4.js",
+      "_storageCalculation-_u9i21ek.js",
+      "_Layout-BmcVw-Oo.js"
     ]
   }
 }
