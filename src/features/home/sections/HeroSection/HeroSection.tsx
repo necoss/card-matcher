@@ -293,7 +293,7 @@ export const HeroSection = () => (
           </motion.div>
 
           <motion.div
-            className="mt-10 grid grid-cols-1 min-[420px]:grid-cols-3 gap-3 sm:flex sm:items-center sm:gap-8"
+            className="mt-10 grid grid-cols-1 gap-3 sm:flex sm:items-center sm:gap-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -303,9 +303,9 @@ export const HeroSection = () => (
               { value: '5+', label: 'Форматов видео' },
               { value: '0 BYN', label: 'Полностью бесплатно' },
             ].map((stat, i) => (
-              <div key={stat.label} className="flex sm:items-center gap-0 sm:gap-8">
+              <div key={stat.label} className="flex w-full sm:items-center gap-0 sm:gap-8">
                 {i > 0 && <div className="hidden sm:block w-px h-8 bg-[var(--color-border)]" />}
-                <div className="p-3 sm:p-0 rounded-xl sm:rounded-none bg-[var(--color-surface)] sm:bg-transparent border border-[var(--color-border)] sm:border-0">
+                <div className="w-full p-3 sm:p-0 rounded-xl sm:rounded-none bg-[var(--color-surface)] sm:bg-transparent border border-[var(--color-border)] sm:border-0">
                   <div className="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)]">{stat.value}</div>
                   <div className="text-xs text-[var(--color-text-muted)]">{stat.label}</div>
                 </div>
@@ -313,15 +313,6 @@ export const HeroSection = () => (
             ))}
           </motion.div>
         </div>
-
-        <motion.div
-          className="lg:hidden w-full min-w-0"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-        >
-          <CapacityComparisonPanel compact />
-        </motion.div>
 
         <motion.div
           className="hidden lg:flex w-full min-h-[32rem] items-center justify-center min-w-0"

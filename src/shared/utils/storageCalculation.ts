@@ -44,6 +44,10 @@ export type CalculationResult = {
   recommendedGb: number
   minimumLabel: string
   recommendedLabel: string
+  minimumCardSizeGb: CardSizeGb
+  recommendedCardSizeGb: CardSizeGb
+  minimumCardLabel: string
+  recommendedCardLabel: string
   details: string
 }
 
@@ -127,21 +131,26 @@ export const calculateStorageGb = (
 export const roundUpToCardSize = (gb: number): CardSizeGb =>
   (STANDARD_CARD_SIZES.find((size) => size >= gb) ?? 8192) as CardSizeGb
 
+const TB_THRESHOLD_GB = 1000
+const GB_PER_TB = 1000
+
 /**
- * Format GB value for display
+ * Format storage volume for display (GB or TB with 2 decimal places)
  */
-export const formatGb = (gb: number): string => {
+export const formatStorageVolume = (gb: number): string => {
+  if (gb > TB_THRESHOLD_GB) {
+    return `${(gb / GB_PER_TB).toFixed(2)} ТБ`
+  }
   return `${Math.ceil(gb)} ГБ`
 }
+
+export const formatGb = (gb: number): string => formatStorageVolume(gb)
 
 /**
  * Get label for a card size (rounds up to next standard)
  */
-export const getRecommendedCardLabel = (gb: number): string => {
-  const cardSize = roundUpToCardSize(gb)
-  if (cardSize >= 1024) return `${cardSize / 1024} ТБ`
-  return `${cardSize} ГБ`
-}
+export const getRecommendedCardLabel = (gb: number): string =>
+  formatStorageVolume(roundUpToCardSize(gb))
 
 const camerasWord = (n: number): string => {
   const mod10 = n % 10
@@ -169,11 +178,18 @@ export const calculateSimple = (input: SimpleCalculatorInput): CalculationResult
 
   const recordingModeLabel = recordingMode === 'continuous' ? 'постоянная запись' : 'запись по движению'
 
+  const minimumCardSizeGb = roundUpToCardSize(minimumGb)
+  const recommendedCardSizeGb = roundUpToCardSize(recommendedGb)
+
   return {
     minimumGb,
     recommendedGb,
-    minimumLabel: `${minimumGb} ГБ`,
-    recommendedLabel: `${recommendedGb} ГБ`,
+    minimumLabel: formatStorageVolume(minimumGb),
+    recommendedLabel: formatStorageVolume(recommendedGb),
+    minimumCardSizeGb,
+    recommendedCardSizeGb,
+    minimumCardLabel: getRecommendedCardLabel(minimumGb),
+    recommendedCardLabel: getRecommendedCardLabel(recommendedGb),
     details: `${cameras} ${camerasWord(cameras)} · ${resolution} · ${hoursPerDay}ч/сут · ${storageDays} дн · ${recordingModeLabel}`,
   }
 }
@@ -199,11 +215,18 @@ export const calculateAdvanced = (input: AdvancedCalculatorInput): CalculationRe
 
   const [resLabel] = resolution.split('_')
 
+  const minimumCardSizeGb = roundUpToCardSize(minimumGb)
+  const recommendedCardSizeGb = roundUpToCardSize(recommendedGb)
+
   return {
     minimumGb,
     recommendedGb,
-    minimumLabel: `${minimumGb} ГБ`,
-    recommendedLabel: `${recommendedGb} ГБ`,
+    minimumLabel: formatStorageVolume(minimumGb),
+    recommendedLabel: formatStorageVolume(recommendedGb),
+    minimumCardSizeGb,
+    recommendedCardSizeGb,
+    minimumCardLabel: getRecommendedCardLabel(minimumGb),
+    recommendedCardLabel: getRecommendedCardLabel(recommendedGb),
     details: `${cameras} ${camerasWord(cameras)} · ${resLabel} · ${codec} · ${bitrateMbps} Мбит/с · ${hoursPerDay}ч/сут · ${storageDays} дн`,
   }
 }
